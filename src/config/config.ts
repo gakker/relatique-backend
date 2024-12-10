@@ -27,3 +27,22 @@ export const otpConfig = {
   otpExpiry: process.env.OTP_EXPIRY_MIN,
   otpSecret: process.env.OTP_SECRET,
 };
+
+// //set smtp server
+// SENDER_MAIL="relatique@gmail.com"
+// MAIL_PASSWORD="Jonathan1984!"
+// SMTP_PORT=465
+// # SMTP_SERVER = "mail.nomiadocs.com"
+// SMTP_SERVER = "mail.nomiadocs.com"
+
+// //set smtp server
+
+export const smtpConfig = {
+  emailService: process.env.EMAIL_SERVICE,
+  emailUser: process.env.EMAIL_USER,
+  emailPassword: process.env.EMAIL_PASS,
+  emailFrom: process.env.EMAIL_FROM,
+};
+
+
+//how to connect to smtp 

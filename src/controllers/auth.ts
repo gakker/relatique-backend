@@ -22,7 +22,7 @@ export const registerUser = async (
       email: user.email,
     });
     if (userExist) {
-      throw new ApiError(400, "Email or Mobile is alredy used");
+      throw new ApiError(400, "Email  is alredy used");
     }
     user = await createUser(user);
     const userData = omit(user?.toJSON(), omitData);

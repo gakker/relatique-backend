@@ -8,6 +8,11 @@ export const createUser = async (payload: any) => {
   return user;
 };
 
+export const createAdmin = async (payload: any) => {
+  const user = await User.create(payload);
+  return user;
+};
+
 export const getUserById = async (id: number) => {
   const user = await User.findByPk(id, {
     attributes: { exclude: ["password"] },
@@ -19,7 +24,7 @@ export const getUserById = async (id: number) => {
 };
 
 export const userExists = async (
-  options: { email: string | null} = {
+  options: { email: string | null } = {
     email: null,
   }
 ) => {
@@ -32,7 +37,6 @@ export const userExists = async (
   if (options.email) {
     where[Op.or].push({ email: options.email });
   }
- 
 
   const users = await User.findAll({ where: where });
   return users.length > 0;
@@ -104,7 +108,7 @@ export const deleteUserById = (userId: number) => {
   if (userId && isNaN(userId)) {
     throw new Error("Invalid user id");
   }
-
+  console.log("userId", userId);
   return User.destroy({
     where: { id: userId },
   });
